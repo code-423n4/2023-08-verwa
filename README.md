@@ -41,9 +41,9 @@ For instance, there might be lending markets X, Y, and Z where Alice, Bob, and C
 
 | Contract | SLOC | Purpose | Libraries used |  
 | ----------- | ----------- | ----------- | ----------- |
-| [src/GaugeController.sol](src/GaugeController.sol) | 192 | Allows users to vote for lending markets (gauges) | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
-| [src/VotingEscrow.sol](src/VotingEscrow.sol) | 413 | Users can lock up CANTO for five years and receive veCANTO in return (which is used to measure voting power) | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
-| [src/LendingLedger.sol](src/LendingLedger.sol) | 144 | Tracks the liquidity of all users in the different lending markets, calculates the shares to receive for each user / market, and allows users to claim their CANTO. | - |
+| [src/GaugeController.sol](https://github.com/code-423n4/2023-08-verwa/tree/main/src/GaugeController.sol) | 192 | Allows users to vote for lending markets (gauges) | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
+| [src/VotingEscrow.sol](https://github.com/code-423n4/2023-08-verwa/tree/main/src/VotingEscrow.sol) | 413 | Users can lock up CANTO for five years and receive veCANTO in return (which is used to measure voting power) | [`@openzeppelin/*`](https://openzeppelin.com/contracts/) |
+| [src/LendingLedger.sol](https://github.com/code-423n4/2023-08-verwa/tree/main/src/LendingLedger.sol) | 144 | Tracks the liquidity of all users in the different lending markets, calculates the shares to receive for each user / market, and allows users to claim their CANTO. | - |
 
 ## Out of scope
 
