@@ -14,7 +14,7 @@
 - Starts August 7, 2023 20:00 UTC 
 - Ends August 10, 2023 20:00 UTC
   
-❗️Awarding Note for Wardens, Judges, and Lookouts: If you want to claim your awards in $ worth of CANTO, you must follow the steps outlined in this [thread](INSERT LINK TO THREAD in AUDIT CHANNEL); otherwise you'll be paid out in USDC.
+❗️Awarding Note for Wardens, Judges, and Lookouts: If you want to claim your awards in $ worth of CANTO, you must follow the steps outlined in this [thread](https://discord.com/channels/810916927919620096/1136716472035586060); otherwise you'll be paid out in USDC.
 
 ⚠️ Note that for this audit, gas optimizations are out of scope. The veRWA team will not be awarding prize funds for gas-specific submissions.
 
