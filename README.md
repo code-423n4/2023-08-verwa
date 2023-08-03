@@ -48,20 +48,22 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 ---
 
 # Canto RWA audit details
-- Total Prize Pool: $36,050 USDC 
-  - HM awards: $25,500 USDC 
-  - Analysis awards: $1,500 USDC 
-  - QA awards: $750 USDC 
-  - Bot Race awards: $2,250 USDC 
-  - Gas awards: $0 USDC 
-  - Judge awards: $3,600 USDC 
-  - Lookout awards: $2,400 USDC 
+- Total Prize Pool: $36,050 (Awards in your choice of USDC or CANTO)
+  - HM awards: $25,500 
+  - Analysis awards: $1,500 
+  - QA awards: $750 
+  - Bot Race awards: $2,250 
+  - Gas awards: $0 
+  - Judge awards: $3,600
+  - Lookout awards: $2,400 
   - Scout awards: $500 USDC
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2023-08-canto-rwa/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts August 7, 2023 20:00 UTC 
 - Ends August 10, 2023 20:00 UTC
+- 
+❗️Awarding Note for Wardens, Judges, and Lookouts: If you want to claim your awards in $ worth of CANTO, you must follow the steps outlined in this [thread](INSERT LINK TO THREAD in AUDIT CHANNEL); otherwise you'll be paid out in USDC.
 
 ⚠️ Note that for this audit, gas optimizations are out of scope. The Canto team will not be awarding prize funds for gas-specific submissions.
 
