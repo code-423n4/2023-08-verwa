@@ -47,7 +47,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 
 ---
 
-# Canto RWA audit details
+# veRWA audit details
 - Total Prize Pool: $36,050 (Awards in your choice of USDC or CANTO)
   - HM awards: $25,500 
   - Analysis awards: $1,500 
@@ -65,7 +65,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
   
 ❗️Awarding Note for Wardens, Judges, and Lookouts: If you want to claim your awards in $ worth of CANTO, you must follow the steps outlined in this [thread](INSERT LINK TO THREAD in AUDIT CHANNEL); otherwise you'll be paid out in USDC.
 
-⚠️ Note that for this audit, gas optimizations are out of scope. The Canto team will not be awarding prize funds for gas-specific submissions.
+⚠️ Note that for this audit, gas optimizations are out of scope. The veRWA team will not be awarding prize funds for gas-specific submissions.
 
 ## Automated Findings / Publicly Known Issues
 
