@@ -48,7 +48,7 @@ Under "SPONSORS ADD INFO HERE" heading below, include the following:
 ---
 
 # veRWA audit details
-- Total Prize Pool: $36,050 (Awards in your choice of USDC or CANTO)
+- Total Prize Pool: $36,500 (Awards in your choice of USDC or CANTO)
   - HM awards: $25,500 
   - Analysis awards: $1,500 
   - QA awards: $750 
