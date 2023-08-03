@@ -366,18 +366,18 @@ contract LendingLedgerTest is Test {
         vm.label(alice, "Alice");
         address market = address(6);
         vm.label(market, "market");
-
+        vm.prank(goverance);
         ledger.whiteListLendingMarket(market, true);
 
-        vm.warp(block.timestamp + WEEK);
+        vm.warp(WEEK);
 
         vm.prank(market);
         ledger.sync_ledger(alice, 1);
 
-        vm.warp(block.timestamp + WEEK);
+        vm.warp(toEpoch + WEEK);
 
         vm.expectRevert("Reward not set yet");
         vm.prank(alice);
-        ledger.claim(market, (block.timestamp % WEEK) * WEEK, WEEK);
+        ledger.claim(market, fromEpoch, toEpoch);
     }
 }
