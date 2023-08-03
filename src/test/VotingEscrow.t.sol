@@ -73,7 +73,7 @@ contract VotingEscrowTest is Test {
         (, , , address delegatee) = ve.locked(user1);
         assertEq(delegatee, user2);
         (, , int128 delegated, ) = ve.locked(user2);
-        assertEq(delegated, 200);
+        assertEq(delegated, 2000000000000000000);
     }
 
     function testRevertDelegateExpired() public {
@@ -128,7 +128,7 @@ contract VotingEscrowTest is Test {
         ve.increaseAmount{value: LOCK_AMT}(LOCK_AMT);
         (, , int128 delegated, ) = ve.locked(user1);
         assertEq(uint256(uint128(delegated)), 2 * LOCK_AMT);
-        assertEq(ve.lockEnd(user1), block.timestamp + ve.LOCKTIME());
+        assertEq(ve.lockEnd(user1), _floorToWeek(block.timestamp + ve.LOCKTIME()));
     }
 
     function testSuccessIncreaseDelegated() public {
@@ -139,7 +139,7 @@ contract VotingEscrowTest is Test {
         ve.increaseAmount{value: LOCK_AMT}(LOCK_AMT);
         (, , int128 delegated, ) = ve.locked(user2);
         assertEq(uint256(uint128(delegated)), 3 * LOCK_AMT);
-        assertEq(ve.lockEnd(user1), block.timestamp + ve.LOCKTIME());
+        assertEq(ve.lockEnd(user1), _floorToWeek(block.timestamp + ve.LOCKTIME()));
     }
 
     function testRevertWithdrawDelegated() public {
