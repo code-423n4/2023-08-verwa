@@ -13,6 +13,10 @@
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts August 7, 2023 20:00 UTC 
 - Ends August 10, 2023 20:00 UTC
+
+**Special note:** This audit was preceded by a [Code4rena Test Coverage competition](https://code4rena.com/test-coverage), which integrates a swarm approach to smart contract unit test coverage. 
+
+While auditing was not the purpose of the testing phase, relevant and valuable findings reported during that phase will be considered. Auditors who identified vulnerabilities during the test coverage phase will be eligible for a share of the pot, with H/M findings identified reviewed and judged as solo findings.
   
 ❗️Awarding Note for Wardens, Judges, and Lookouts: If you want to claim your awards in $ worth of CANTO, you must follow the steps outlined in this [thread](https://discord.com/channels/810916927919620096/1136716472035586060); otherwise you'll be paid out in USDC.
 
