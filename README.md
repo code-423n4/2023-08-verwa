@@ -9,7 +9,7 @@
   - Lookout awards: $2,400 
   - Scout awards: $500 USDC
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2023-08-canto-rwa/submit)
+- Submit findings [using the C4 form](https://code4rena.com/contests/2023-08-verwa/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts August 7, 2023 20:00 UTC 
 - Ends August 10, 2023 20:00 UTC
