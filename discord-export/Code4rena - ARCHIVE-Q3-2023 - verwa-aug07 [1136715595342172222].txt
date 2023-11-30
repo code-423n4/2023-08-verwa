@@ -1,0 +1,1960 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q3-2023 / verwa-aug07
+==============================================================
+
+[08/03/2023 17:44] itsmetechjay (pinned)
+👋 Hello and welcome to the audit channel for the $36,500 **veRWA** audit!
+
+📆 Audit opens Monday, 07 August 2023 20:00 (20:00 UTC) and runs through Thursday, 10 August 2023 20:00(20:00 UTC) (3 days).
+
+Please give a warm welcome to the veRWA team, particularly @Roman, who will be available for questions either here in the channel or via DM.
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/contests/2023-08-verwa#top
+
+
+[08/03/2023 17:45] itsmetechjay (pinned)
+For this audit, you have the option to be paid out in USDC or CANTO.  If you want to claim your awards in $ worth of CANTO, please follow the steps in the thread prior to the audit close: Thursday, 10 August 2023 20:00.  If you do not follow the steps in the thread, any earned rewards will be paid out in USDC.
+
+Details in thread 👉
+
+
+[08/03/2023 17:45] itsmetechjay
+Pinned a message.
+
+
+[08/03/2023 17:45] itsmetechjay
+Pinned a message.
+
+
+[08/06/2023 07:12] 14si2o_flint
+@Roman Could you tell us if the code in question will be in Go or in Solidity? If it's the first, I need to brush up my Go skills before the audit starts. 😅
+
+{Reactions}
+👍 
+
+[08/06/2023 09:10] milotruck
+It's in solidity:
+https://discord.com/channels/810916927919620096/1093914558776758403/1136727260381069506
+
+{Reactions}
+👍🏻 (6) 
+
+[08/07/2023 20:45] cholakovv
+@Roman on which chains will the contracts be deployed?
+
+
+[08/07/2023 20:46] Lambda#9382
+Only on Canto
+
+{Reactions}
+👍 
+
+[08/07/2023 21:04] dontonka
+> Auditors who identified vulnerabilities during the test coverage phase will be eligible for a share of the pot
+Can you guys give some context on how many findings was found during this code coverage competition?
+
+
+[08/07/2023 21:06] cloudellie
+they're all subject to judging so counts won't be final until judging is finalized
+
+{Reactions}
+🫡 (2) 
+
+[08/07/2023 23:23] 0xtendency
+@Roman just dm'd
+
+{Reactions}
+👍 
+
+[08/08/2023 01:57] 0xjuntao
+@Roman Hey, can you please explain the meaning of each variable? ```    struct Point {
+        int128 bias;
+        int128 slope;
+        uint256 ts;
+        uint256 blk;
+    }```
+
+{Reactions}
+👍 (3) ☝️ (5) 
+
+[08/08/2023 05:24] .ash_hunter
+yes please
+
+
+[08/08/2023 05:53] cholakovv
+@Roman can you check dm please?
+
+{Reactions}
+👍 
+
+[08/08/2023 05:53] no12samurai
+As far as I know
+
+y = ax + b
+
+If you assume the point follows the previously mentioned equation, a is the slope and b is the bias. ts is the timestamp of the point and blk is the block number.
+
+{Reactions}
+👍 (4) 
+
+[08/08/2023 05:54] .ash_hunter
+@No12Samurai question can you please tell what is bias i am new to web3
+
+
+[08/08/2023 05:57] no12samurai
+It's not about the web3. It's about the formula that is being used in the implementation. 
+
+y = ax + b is implemented, and bias shows the b b parameter in the equation.
+
+
+[08/08/2023 05:57] .ash_hunter
+oh okazz thank  you
+
+
+[08/08/2023 05:57] _3agle
+This equation is for a straight line and this struct represents a Point on the line
+
+
+[08/08/2023 05:58] 0xpatrooney
+> We assume that all calls that are performed by the governance address are performed with the correct parameters.
+Does that mean for example any input validation is not valid issue?
+
+
+[08/08/2023 05:58] .ash_hunter
+now i got it🫡
+
+
+[08/08/2023 06:00] 0xjuntao
+what is x and y?
+
+
+[08/08/2023 06:15] plamkata
+Coordinates
+
+{Reactions}
+😅 
+
+[08/08/2023 06:19] 0xjuntao
+yeah what do they represent for in the context of the contract?
+
+
+[08/08/2023 06:19] _3agle
+I think user's voting power over time
+
+{Reactions}
+👍 
+
+[08/08/2023 06:20] plamkata
+I am not home to audit rn, when I hop on later I will try to help in understanding
+
+
+[08/08/2023 06:21] plamkata
+They say they are using Curve's linear logic so I assume that formula represents that
+
+
+[08/08/2023 06:29] 0xjuntao
+feel stupid reading the codes
+
+{Reactions}
+😂 (3) 
+
+[08/08/2023 06:42] 0xjuntao
+why 255 here? ```for (uint256 i = 0; i < 255; i++) {```https://github.com/code-423n4/2023-08-verwa/blob/9a2e7be003bc1a77b3b87db31f3d5a1bcb48ed32/src/VotingEscrow.sol#L185
+
+{Embed}
+https://github.com/code-423n4/2023-08-verwa/blob/9a2e7be003bc1a77b3b87db31f3d5a1bcb48ed32/src/VotingEscrow.sol
+2023-08-verwa/src/VotingEscrow.sol at 9a2e7be003bc1a77b3b87db31f3d5...
+Contribute to code-423n4/2023-08-verwa development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/78a3c8e3-1ce2-4aec-8ec5-52f189fd955d-1A141
+
+
+[08/08/2023 06:51] 0xjuntao
+255 weeks? doesn't make much sense🤔
+
+
+[08/08/2023 06:55] 0xstalin
+I haven't read anything of the codebase, but if 255 represents weeks, it actually makes sense, 255 weeks is aprox 5 years, which is the lock time
+
+But most probably it represents another thing, why iterate over all the weeks of the lock time?
+
+{Reactions}
+👍 
+
+[08/08/2023 07:08] Lambda#9382
+Yes exactly, as @No12Samurai mentioned, these store the mathematical bias / slope of a linear equation. We have the functions w_i(t) for every user which represent the individual user voting weights and W(t) which is the total weight (see https://curve.readthedocs.io/dao-vecrv.html for details). These are both linear (decaying) functions which can be represented in the following form: W(t) = m*t + b
+b is the bias and m is the slope of this linear function (and t is time)
+
+{Reactions}
+👍 (3) 
+
+[08/08/2023 07:16] Lambda#9382
+Yes, the 255 is originally from Curve's implementation and means that the `_checkpoint` function needs to be called at least every 255 weeks (bit less than 5 years). Because the function is called on almost every operation (creating a lock, delegating, withdrawing) and could also be called explicitly, this is a pretty light requirement when the contract is used actively. If it is no longer used and there is for instance still one user with remaining deposits, they can withdraw nevertheless, even after many years (this just affects the voting weights)
+
+
+[08/08/2023 07:18] 0xjuntao
+got it, thanks!
+
+
+[08/08/2023 07:22] .ash_hunter
+@Juntao🐾 dmed you
+
+
+[08/08/2023 08:19] kamuik16
+@Roman what is last_epoch in GaugeController.sol ?
+
+
+[08/08/2023 08:23] Lambda#9382
+In the constructor? That's the timestamp of the beginning of the current week (epoch)
+
+{Reactions}
+👍 
+
+[08/08/2023 08:33] sp1cymeatball
+@Roman do user needs to delegate to himself to be able to vote?
+
+
+[08/08/2023 08:33] 0xjuntao
+@Roman Hi, because W(t) = m*t + b is decaying so m (slope) should be negative, correct? How is it guaranteed in the implementation?
+
+
+[08/08/2023 08:38] Lambda#9382
+No, you only need to delegate to yourself to remove an existing delegation, but if you never delegate to another user, you also do not need to delegate to yourself.
+
+{Reactions}
+thankyou 
+
+[08/08/2023 08:42] Lambda#9382
+Yes, in this form it should be negative. But the implementation actually stores the slope as a positive value and then subtracts whenever it is used, for instance in `balanceOf`:
+```
+lastPoint.bias = lastPoint.bias - (lastPoint.slope * int128(int256(block.timestamp - lastPoint.ts)));
+```
+So in terms of implementation, the formula b - m * t is used. It is ensured that m is always positive by how it's set:
+```
+userOldPoint.slope = _oldLocked.delegated / int128(int256(LOCKTIME));
+```
+(both numbers are positive in this case). Also, all other modifications ensure that it stays positive
+
+{Reactions}
+👍 (2) 
+
+[08/08/2023 08:56] 0xnirlin
+Is there some thing new, or everything have been forked?
+
+
+[08/08/2023 09:06] Lambda#9382
+VotingEscrow is a fork of https://github.com/code-423n4/2022-08-fiatdao/blob/main/contracts/VotingEscrow.sol with a few modifications. GaugeController is a Solidity port of https://github.com/curvefi/curve-dao-contracts/blob/master/contracts/GaugeController.vy with some modifications. LendingLedger is completely new
+
+{Reactions}
+🫡 (4) 
+
+[08/08/2023 09:19] superman_i4g
+A quick question @Roman 
+Is there a known issue with the contract (GuageController) compiling?
+
+
+[08/08/2023 09:21] Lambda#9382
+The contracts are at the limit with regards to stack-too-deep, adding variables or changing things might result in a stack-too-deep error. But without changes and with the foundry config that's provided in the repo, they should compile normally
+
+{Reactions}
+👍 
+
+[08/08/2023 09:25] superman_i4g
+Noted👍🏽
+
+
+[08/08/2023 09:28] liffidmonky
+@Roman in the    ```struct Point {
+        int128 bias;
+        int128 slope;
+        uint256 ts;
+        uint256 blk;
+    }```ts = timestamp and blk = block?
+
+
+[08/08/2023 09:35] Lambda#9382
+yep
+
+
+[08/08/2023 09:36] 0xg03.14
+@Roman Is the goverance a DAO or a someone like an owner..?
+
+
+[08/08/2023 09:38] Lambda#9382
+A DAO, the address will be set to the Canto Governance (https://docs.canto.io/technical-reference/governance) address
+
+{Embed}
+https://docs.canto.io/technical-reference/governance
+Governance
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/lJV8ALFtmmmod1reMEJI-A27C4.png
+
+{Reactions}
+🫡 
+
+[08/08/2023 10:39] timongty
+heya , link to automated findings seem to be broken
+
+
+[08/08/2023 10:50] kaveyjoe
+Bot race Result isn't come out yet .
+
+{Reactions}
+👍 
+
+[08/08/2023 10:59] josephdara
+Hi, Noob question here
+How many decimals does Canto have?
+
+
+[08/08/2023 11:08] mrpotatomagic
+@Roman dmed you
+
+{Reactions}
+👍 
+
+[08/08/2023 11:14] Lambda#9382
+18 like ETH
+
+
+[08/08/2023 11:18] josephdara
+Thanks
+
+
+[08/08/2023 11:18] 0xkazimm
+i think it not shared yet !
+
+
+[08/08/2023 11:19] mosharaf
+Sorry, but i did not get it.. If i do not participate in the test coverage contest  then i will not be eligible for the pot?
+
+
+[08/08/2023 11:24] audityourcontracts
+I think they meant if people submitted bugs alongside tests in the last test competition those bugs will be scored in this competition (so no need to submit again). That's how I interpreted it.
+
+{Reactions}
+✅ 🫡 
+
+[08/08/2023 11:32] cholakovv
+@Roman are there any docs for veRWA?
+
+
+[08/08/2023 11:39] deth2814
+@Roman I sent a small question, whenever you have the time.
+
+
+[08/08/2023 12:20] mladenov#0603
+Did you find any docs?
+
+
+[08/08/2023 12:26] cholakovv
+no, only for Canto
+
+{Reactions}
+👍 
+
+[08/08/2023 12:26] Lambda#9382
+Only the README and the inline docs. But for the understanding of `VotingEscrow` and `GaugeController`, the veCRV docs (https://curve.readthedocs.io/dao-vecrv.html) should be helpful, as they describe these mechanisms pretty well
+
+{Reactions}
+👍 (3) 
+
+[08/08/2023 12:28] jat4100
+I see many `See IVotingEscrow for documentation` but `IVotingEscrow` seems to be nowhere to be seen ?
+
+
+[08/08/2023 12:36] Lambda#9382
+I did not include that in the repo, but it is this file in case you want to take a look at it: https://github.com/code-423n4/2022-08-fiatdao/blob/main/contracts/interfaces/IVotingEscrow.sol
+
+{Reactions}
+👍🏼 (2) 
+
+[08/08/2023 13:14] Oxchryston.eth#7380
+Thanks for this
+
+
+[08/08/2023 13:59] 0xkazimm
+@Roman  DMed you please check it🙏🏻
+
+{Reactions}
+👍 
+
+[08/08/2023 14:07] Message Wolf#0225 (pinned)
+**Automated Findings / Publicly Known Issues**
+
+
+  Automated findings output for the audit can be found [here](https://gist.github.com/code423n4/b1a7bd4b13a4b0c1a62e25dc56eb6dac).
+
+  
+  *Note for C4 wardens: Anything included in the automated findings output is considered a publicly known issue and is ineligible for awards.*
+
+
+[08/08/2023 14:21] liffidmonky
+@Roman cant find IVotingEscrow, some functions say check this file for the docs, cant find it, where is it? sorry if its location was obvious but I really cant find it xd 😅
+
+
+[08/08/2023 14:22] Lambda#9382
+No problem, the file is really missing in the repo, see here for the location: https://discord.com/channels/810916927919620096/1136715595342172222/1138450634899734619
+
+{Reactions}
+❤️‍🔥 
+
+[08/08/2023 14:30] 14si2o_flint
+@Roman Could you provide an example of a `Lending Market` as used in LendingLedger? Are they all Canto versions of tokenised real world assets? Do they already exist?
+
+
+[08/08/2023 14:36] itsmetechjay
+Pinned a message.
+
+
+[08/08/2023 14:38] 0xkazimm
+this codebase only support/use CANTO token right ?!
+
+
+[08/08/2023 14:39] castle_chain
+hey , @Roman  I DMed you , can you check it
+
+{Reactions}
+👍 
+
+[08/08/2023 14:42] Lambda#9382
+Currently, no lending markets exist. But this will be arbitrary markets that adhere to the provided interface and are whitelisted by governance
+
+
+[08/08/2023 14:43] Lambda#9382
+Yes
+
+{Reactions}
+👍🏻 
+
+[08/08/2023 14:46] devival
+I've changed nothing. forge test is successful but the compiler fails on forge coverage. any ideas how to solve this?
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/image-F6474.png
+
+
+[08/08/2023 14:47] castle_chain
+same problem
+
+{Reactions}
+👍 
+
+[08/08/2023 14:48] elcid2000
+Does anyone know what's cNote? Is it the LpToken?
+
+
+[08/08/2023 14:51] Lambda#9382
+Yes I had the same problem, `forge coverage` does not respect `via-ir` in its default configuration. You can use the option `--ir-minimum`, then it should work. But make sure to update foundry before that, the option was added very recently (last month)
+
+{Reactions}
+❤️ 
+
+[08/08/2023 14:53] Lambda#9382
+See here: https://docs.canto.io/technical-reference/architecture-and-design/usdnote-design It's the cToken (https://docs.compound.finance/v2/ctokens/) of NOTE (which is the Canto stablecoin)
+
+{Embed}
+https://docs.canto.io/technical-reference/architecture-and-design/usdnote-design
+$NOTE Design
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/l2tuEbluGAAZI9cIcGDv-90DC8.png
+
+{Embed}
+https://docs.compound.finance/v2/ctokens/
+Compound v2 Docs | cTokens
+Compound is an algorithmic, autonomous interest rate protocol built for developers, to unlock a universe of open financial applications.
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/meta-tag-2C649.png
+
+
+[08/08/2023 14:55] liffidmonky
+why is the function ``` function createLock(uint256 _value) external payable nonReentrant ``` non reentrant? Cant seem to find any reason for it
+
+
+[08/08/2023 15:00] Lambda#9382
+True, that's from the FIAT DAO codebase where it might have been necessary. But in this setup, it should not be
+
+{Reactions}
+🫡 
+
+[08/08/2023 15:02] liffidmonky
+thats what I was thinking, I guess this goes into the QA report xd
+
+
+[08/08/2023 15:08] plamkata
+
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/image-4C172.png
+
+
+[08/08/2023 15:08] plamkata
+You could have atleast included it
+
+
+[08/08/2023 15:12] pacelliv
+https://github.com/code-423n4/2022-08-fiatdao/blob/main/contracts/interfaces/IVotingEscrow.sol
+
+
+[08/08/2023 15:50] 0_address
+thanks @0xPacelli
+
+
+[08/08/2023 15:50] 0xg03.14
+@Roman DMed!
+
+{Reactions}
+👍 
+
+[08/08/2023 16:32] elcid2000
+@Roman dmed you!
+
+{Reactions}
+👍 
+
+[08/08/2023 17:50] delvir0
+Which network will this be deployed on - mainnet only?
+
+
+[08/08/2023 17:51] mrpotatomagic
+only Canto https://discord.com/channels/810916927919620096/1136715595342172222/1138211546682634303
+
+
+[08/08/2023 19:11] plamkata
+@Roman Not sure if it is only me, but I have a very hard time understanding the slope, or more specifically the checkpoint internal function's logic. Do you have some kind on an external doc that goes over the logic, or could you give a briefer version of how it works. Clarity would help me uncover the logic and I hope it's not only me getting confused
+
+{Reactions}
+☝️ (5) 👍 (3) 
+
+[08/08/2023 19:24] azaryan01
+same 🙂
+
+
+[08/08/2023 19:27] plamkata
+There's definitely a good logic in using a slope represented by points to go about lowering voting power, but the lack of explanation is hitting hard. If I dive too deep to understand it, the audit may end before that
+
+{Reactions}
+👍 (2) 
+
+[08/08/2023 19:28] 0xdetermination
+https://curve.readthedocs.io/dao-gauges.html relates to this topic
+
+
+[08/08/2023 19:31] Lambda#9382
+In terms of doc, the veCRV (https://curve.readthedocs.io/dao-vecrv.html) or veFDT (https://github.com/code-423n4/2022-08-fiatdao/tree/main) docs are probably the best source.
+
+I can also try to explain it on a high level: The purpose of the `VotingEscrow` contract is that a user can lock up tokens and his voting power decays linearly over time (in our case over 5 years, i.e. is 0 after 5 years). If you think a moment about how you would implement this, it is pretty easy for one user with one lock: You would just store the linear function (which is parametrized by a slope and a bias) of this user and then you can always linearly interpolate.
+If there are multiple users, things get a bit more difficult: You now want to know the overall voting balance (i.e., the sum of all voting balances of the users) at any point in time. A trivial (but not scalable) way to do this would be to iterate over all users every time you query this. A scalable way to do this (and how it is implemented) is to store the overall voting power (including its history, as this changes with new deposits and you need to reconstruct the historical values), which is also a linear function (as it is a sum of linear functions).
+The next problem is that users can increase their locked tokens at any point. This changes the form of the function, but only starting from this new deposit, the user obviously does not have more voting power three weeks ago because he increased his locked tokens now. Therefore, we also need to keep track of all the historical user functions such that we can reconstruct the historical voting power.
+The `_checkpoint` logic implements all of this and ensures that the global and user history is correct whenever there is a change to the locks
+
+{Reactions}
+👍 (14) 
+
+[08/08/2023 19:33] escrow1337
+@Roman sent a friend request
+
+{Reactions}
+✅ 
+
+[08/08/2023 19:37] superman_i4g
+This kinda makes more sense now
+
+
+[08/08/2023 20:10] jaimebarrancos
+I dont understand what the slope and bias represent.
+
+
+[08/08/2023 20:10] 0xstalin
+@Roman Sent you a DM Sir 🧐
+
+
+[08/08/2023 20:12] superman_i4g
+Read again
+
+
+[08/08/2023 20:13] jaimebarrancos
+I just read and it was helpful but I don't know what slope and bias mean
+
+
+[08/08/2023 20:21] jaimebarrancos
+like what do they represent
+
+
+[08/08/2023 20:28] habib0x
+the calculated time
+
+
+[08/08/2023 20:31] 0xsl1
+As far as i understood the equation being used is linear decay model. This model is a line and "struct Point" represents a point on that line. The function is as follows: W(t) = m * t + b. m is the slope indicating the rate of decrease (should be negative, the higher the negative value => the steeper the decrease). b is the bias, it is the value of the dependant variable (w) when the independant variable (t which is time) is equal to zero, it is the initial W at t = 0, which is the starting point of analysis. But you have to bear in mind that implementation stores the slope as positive value and then substracts whenever is its used. So the implementation actually is W(t) = b - m * t. Hope i got it right, but not exactly user if i understood bias correclty. Would glaldy be corrected if i am wrong.
+
+{Reactions}
+🫶 
+
+[08/08/2023 20:38] jaimebarrancos
+thanks
+
+{Reactions}
+👍 
+
+[08/08/2023 20:50] windhustler
+The easiest way of thinking about linear decay is on a simple example of staking 1 Canto and imagining that the LOCKTIME = 10 days. 
+
+The slope in that case would be = 1 / 10 = 0.1
+The bias in that case would be => slope * (end_lock_date - block.timestamp) => 0.1 * 10 = 1.
+
+5 days pass, bias is now = 0.1 * 5 = 0.5. 
+
+So, half of the lock time has passed you lose half of your voting power in this case.
+
+{Reactions}
+👍 (15) 😯 🔥 (4) 
+
+[08/08/2023 21:15] kitkat7531
+thank you for the example :hi5:
+
+
+[08/08/2023 21:58] b353n
+That was really helpful
+
+
+[08/08/2023 22:52] 0xkazimm
+Check this it may help:
+
+https://youtu.be/MeU-KzdCBps
+
+{Embed}
+Khan Academy
+https://www.youtube.com/watch?v=MeU-KzdCBps
+Introduction to slope | Algebra I | Khan Academy
+Courses on Khan Academy are always 100% free. Start practicing—and saving your progress—now:  https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:linear-equations-graphs/x2f8bb11595b61c86:slope/v/introduction-to-slope
+
+Introduction to slope
+
+Watch the next lesson: https://www.khanacademy.org/math/algebra/two-var-linear-equations-and-intro...
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/maxresdefault-5EBD5.jpg
+
+{Reactions}
+🔥 
+
+[08/09/2023 01:56] 0xjuntao
+so bias is balance🤔
+
+
+[08/09/2023 02:14] scauditor.eth
+I can´t see bias as balance, I understand it as a voting power while the balance remains the same
+
+
+[08/09/2023 02:16] .ash_hunter
+its voting power
+
+
+[08/09/2023 02:16] pacelliv
+Bias also called the intercept is the value on which the line *intercepts* the y-axis. 
+
+In the context of this contract, it represents the original voting power when the user initially created a lock.
+
+{Reactions}
+👍 (3) 
+
+[08/09/2023 02:39] 0xjuntao
+yeah in code balanceOf() returns votingPower
+
+
+[08/09/2023 03:13] 0xjuntao
+I don't understand why make voting power decaying, earlier locker has less voting power than later lockers, what are the benefits of it?
+
+
+[08/09/2023 04:29] _3doc_
+The platform rewards you with voting power for locking tokens and keeping them locked. 
+
+Tokens that you can unlock tomorrow will give you less rewards than tokens that will stay locked for 5 (more) years
+
+
+[08/09/2023 04:48] reentrant
+@Roman what is the purpose of the multiple castings in the code, ex. in VotingEscrow.sol `withdraw()`:
+
+```javascript
+uint256 amountToSend = uint256(uint128(locked_.amount));
+LockedBalance memory newLocked = _copyLock(locked_);
+newLocked.amount = 0;
+newLocked.end = 0;
+newLocked.delegated -= int128(int256(amountToSend));
+```
+
+
+[08/09/2023 04:50] anirruth
+@Roman dmed you
+
+
+[08/09/2023 05:08] benrai
+Locked_.amount is a int128. You need to cast it into unit128 and then into unit256 to be able to work with it since ‘amountToSend’ is a uint256
+
+{Reactions}
+👍 
+
+[08/09/2023 06:30] 0xc86
+@Roman sent you a DM ser
+
+
+[08/09/2023 06:37] coffiasd
+@Roman  every single deposit / withdraw in lending market will trigger `sync_ledger` call ?
+
+
+[08/09/2023 06:39] coffiasd
+Idk how the lending market trigger  this call  , is this operation include a transaction with deposit / withdraw ?
+
+
+[08/09/2023 06:57] Lambda#9382
+Yes exactly, the lending markets have to integrate this call in their deposit and withdraw functions such that it is called on every deposit / withdraw
+
+{Reactions}
+❤️ 
+
+[08/09/2023 07:43] 0xnirlin
+I understand slope, but what is bias.
+
+
+[08/09/2023 07:43] 0xnirlin
+I had D grade in calculus :thisisfine:
+
+
+[08/09/2023 07:56] .ash_hunter
+@Roman or anyone here tell me about _floorToWeek function use
+
+
+[08/09/2023 07:58] .ash_hunter
+is it for weekly increment but is the value  _t  depends on something..?
+
+
+[08/09/2023 07:58] .ash_hunter
+its the voting power
+
+
+[08/09/2023 08:02] Lambda#9382
+The function takes a timestamp and rounds it down to the nearest increment of a week. We use that for the epochs, each epoch has a duration of one week and is identified by the timestamp the week starts
+
+{Reactions}
+❤️ 
+
+[08/09/2023 08:27] jaimebarrancos
+@Roman sent you a DM
+
+
+[08/09/2023 08:31] 0xnirlin
+@Roman sent you dm 🫡
+
+
+[08/09/2023 09:06] liffidmonky
+is cNOTE the canto native token/coin?
+
+
+[08/09/2023 09:08] liffidmonky
+do lending markets in the canto network have some standard definition for its implementation? Is there any code that shows as an example of that implementaiton if it exists? @Roman
+
+
+[08/09/2023 09:15] Lambda#9382
+No that's the cToken of NOTE (which is a stablecoin), see here for some resources: https://discord.com/channels/810916927919620096/1136715595342172222/1138485051051483226
+
+
+[08/09/2023 09:16] Lambda#9382
+No, but we will provide this interface (with the `sync_ledger`) functions to every market that wants to integrate with veRWA and make sure that they adhere to it (i.e., call the sync function on every deposit / withdrawal)
+
+
+[08/09/2023 09:33] liffidmonky
+@Roman  is this a posible scenario for lending markets? => Developers are now required to ensure that LM (Lending Market) calls the sync function for each cNOTE deposit or withdrawal. However, this process can become particularly challenging if the lending market is composed of several contracts and exhibits high complexity in its code due to the management of various assets or offering different financial products etc etc. Such complexity necessitates additional time and resources for developers, either in the validation of markets or in the creation of more sophisticated bots to analyze them.
+
+
+[08/09/2023 09:34] 14si2o_flint
+[NC-38] Avoid the use of sensitive terms
+
+Use alternative variants, e.g. allowlist/denylist instead of whitelist/blacklist.
+
+The bot is woke lol? 😂
+
+{Reactions}
+😂 (26) 
+
+[08/09/2023 09:37] windhustler
+Leave the bot alone, he's just trying his best to virtue signal 😆
+
+
+[08/09/2023 09:38] 14si2o_flint
+My mistake, I shouldn't have assumed it's/they/them's pronouns 🙇‍♂️
+
+
+[08/09/2023 10:14] Lambda#9382
+Not 100% sure if I get the question. Yes, the integration complexity depends heavily on the market and and is very specific to its codebase. For some markets this may be pretty trivial, for others it might be more elaborate and require more developer resources
+
+{Reactions}
+🤟 
+
+[08/09/2023 10:53] liffidmonky
+Yeah thats what I was asking 😄 thanks
+
+
+[08/09/2023 10:57] liffidmonky
+@Roman  where can I find more details about the governance system that the onlyGovernance modifier grants access for? Who owns that address? A distributed users with different power levels/weights? A single entity?
+
+
+[08/09/2023 11:01] Lambda#9382
+This will be set to the Canto governance address. Details how this system works are available here: https://docs.canto.io/technical-reference/governance
+
+{Embed}
+https://docs.canto.io/technical-reference/governance
+Governance
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/lJV8ALFtmmmod1reMEJI-A27C4.png
+
+{Reactions}
+🔥 
+
+[08/09/2023 11:02] castle_chain
+where can i find more details about the gaugeController contract?? @Roman
+
+
+[08/09/2023 11:03] Lambda#9382
+It is a Solidity port of this contract: https://github.com/curvefi/curve-dao-contracts/blob/master/contracts/GaugeController.vy
+Which is documented here: https://curve.readthedocs.io/dao-gauges.html#gaugecontroller
+
+{Embed}
+https://github.com/curvefi/curve-dao-contracts/blob/master/contracts/GaugeController.vy
+curve-dao-contracts/contracts/GaugeController.vy at master · curvef...
+Vyper contracts to be used by Curve DAO. Contribute to curvefi/curve-dao-contracts development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/62005300-1ac5-11eb-9afe-b22e6448e119-603B4
+
+{Reactions}
+👍 
+
+[08/09/2023 12:07] liffidmonky
+@Roman  will LendingLedger be the only Ledger distributing rewards, or does the system plan to add different Ledgers to distribute rewards for different kinds of financial instruments or activities?
+
+
+[08/09/2023 12:36] Lambda#9382
+It is not planned to add different ledgers, LendingLedger will be the only one
+
+
+[08/09/2023 12:44] thekmj
+Do the current test files include tests added by the testing squad?
+
+
+[08/09/2023 12:46] Lambda#9382
+Yes, all of the tests in the repo were added by the testing squad
+
+
+[08/09/2023 12:56] 0x3b
+was anything fixed after the testing squad found issues, or the code is the same before and after tests?
+
+
+[08/09/2023 12:57] liffidmonky
+@Roman So as of what I understand, RWA is using CANTO's governance for its personalized voting incentive system. The thing is, a CANTO's governance participant is not necessarily interested in participating in the RWA project?
+
+
+[08/09/2023 12:58] Lambda#9382
+Some minor changes were made
+
+
+[08/09/2023 13:01] Lambda#9382
+The governance participants do not necessarily have to participate in veRWA, i.e. they do not have to lock up tokens if they do not want to. Governance only whitelists markets and distributes rewards (which is similar to the existing governance integration for the Canto lending market)
+
+
+[08/09/2023 13:06] liffidmonky
+So if a big enough quantity of the CANTO's governance participants decide to mess up the veRWA parameters they just could do itç?
+
+
+[08/09/2023 13:09] Lambda#9382
+In theory yes, the impact is kept as little as possible (users could still withdraw, historical epochs would not be affected), but there are necessarily a few parameters that are controlled by governance where the system relies on correct values
+
+
+[08/09/2023 13:15] 0xkazimm
+is that mean the protocol allow to unlock token even before reaching 5 years ?!!
+
+edit: the protocol not allow to unlock before 5 years as  i understand it
+
+
+[08/09/2023 13:20] nisedo
+The bias is like a tank of water filled to the top when you start.
+The slope is like a hole at the bottom, determining how quickly the water drains out. A bigger hole (steeper slope) means the water drains faster, while a smaller hole (gentler slope) means it drains slower.
+
+This mechanism ensures that users who are more committed (locking for longer periods) have a more sustained influence, while those who commit for shorter periods see their influence wane more quickly.
+
+{Reactions}
+10_10 (4) 👍 (2) 🔥 (2) 
+
+[08/09/2023 13:21] _3doc_
+5 years is fixed but you can decide to renew at any point to “5 years from now” by providing more liquidity
+
+{Reactions}
+👍 
+
+[08/09/2023 13:22] _3doc_
+After 4 years and something, you will be in the situation of being able to unlock the next day…
+
+
+[08/09/2023 14:33] Audinarey#1058
+Voting Power
+
+
+[08/09/2023 14:34] Audinarey#1058
+w(t) = b - mt?
+
+
+[08/09/2023 14:43] Lambda#9382
+Yes that is the formula for the line
+
+
+[08/09/2023 15:23] parsely.
+Please may i check are any of the contracts meant to be proxied/upgradeable?
+
+
+[08/09/2023 15:34] lsaudit
+@Roman  - i have dmed you
+
+{Reactions}
+👍 
+
+[08/09/2023 15:35] Lambda#9382
+No, none will be deployed behind a proxy
+
+{Reactions}
+🙏 👍 
+
+[08/09/2023 16:33] mert_eren#2527
+hi i dont see any advantage (like interest) for voting escrow stakers. Is the only advantage of stake in voting escrow play the role to determine weights of lendpool prizes or are there  anymore utility for ve stakers which i cant see.
+
+
+[08/09/2023 18:12] Lambda#9382
+Yes exactly, incentive to do this is the voting. In practice, it will probably be done mostly by users who are lenders in a market because they want that their market(s) get as many tokens as possible
+
+{Reactions}
+👍🏻 
+
+[08/09/2023 18:51] mike_bello90
+votinEscrow contract is for the user to lock tokens so they can vote?
+
+
+[08/09/2023 18:51] mike_bello90
+the user can decide the amount of time they want to lock tokens or it's mandatory for them to lock the tokens for 5 years?
+
+
+[08/09/2023 18:54] Lambda#9382
+Yes, VotingEscrow is to lock for voting. The lock time is fixed to 5 years (and reset when the amount is increased)
+
+
+[08/09/2023 18:56] mike_bello90
+get it thanks!
+
+
+[08/09/2023 19:39] 0xkazimm
+as i understand the guageController.sol is used to calculate slope and bias or voting power for the users and it allow to give weight to specific liquidity pool, am i right ? and is the guage controller decide how much canto can a liquidity pool have ?
+
+
+[08/09/2023 19:49] Lambda#9382
+Users vote within the GaugeController for the different markets and that determines the percentage of CANTO that is allocated for each market
+
+{Reactions}
+👍🏻 
+
+[08/09/2023 19:50] 0xkazimm
+clear enough, thank you sir
+
+
+[08/09/2023 20:24] 0xkazimm
+when we add new gauge we don't set any weight point or any data for it, did the new gauge will get the weight and power by time when users vote for it ?!
+
+
+[08/09/2023 20:27] t1moh
+There is function to set weight to pool
+
+
+[08/09/2023 20:27] 0xkazimm
+but its not called in the add gauge function
+
+
+[08/09/2023 20:28] 0xkazimm
+so i think it should be called separately
+
+
+[08/09/2023 20:33] Lambda#9382
+Yes, the idea is that they originally have a weight 0 and this increases as soon as people vote for it
+
+{Reactions}
+👍🏻 
+
+[08/09/2023 20:33] 0xkazimm
+thanks sir ☺️
+
+
+[08/09/2023 20:38] 0xkazimm
+hey ser, did the struct point slope and bias stored in value that is multiplied by 1e18 ?
+
+
+[08/09/2023 20:58] Lambda#9382
+We do not multiply it by 1e18, but CANTO has 18 decimals, so the `_value` that is passed to `createLock` will also have 18 decimals (i.e. 1e18 would be 1 CANTO)
+
+
+[08/09/2023 20:59] 0xkazimm
+i mean the one that is in the gauge controller, is  your answer true for this one?
+
+```
+  struct Point {
+        uint256 bias;
+        uint256 slope;
+    }
+```
+
+
+[08/09/2023 21:34] Lambda#9382
+Yes also no multiplication there, the raw values are stored
+
+{Reactions}
+👍🏻 
+
+[08/09/2023 21:45] brahma7456
+@Roman pls check dm whenever u have time
+
+{Reactions}
+👍 
+
+[08/10/2023 00:08] mike_bello90
+guys what is a gauge?
+
+
+[08/10/2023 00:29] 0xkazimm
+If you mean GaugeController it used to allow users vote for different markets and give it weights which this help to determine the % of CANTO that each market will get.
+
+
+You can read the curve docs for more details:
+
+https://github.com/curvefi/curve-dao-contracts/blob/master/contracts/GaugeController.vy
+
+{Embed}
+https://github.com/curvefi/curve-dao-contracts/blob/master/contracts/GaugeController.vy
+curve-dao-contracts/contracts/GaugeController.vy at master · curvef...
+Vyper contracts to be used by Curve DAO. Contribute to curvefi/curve-dao-contracts development by creating an account on GitHub.
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/62005300-1ac5-11eb-9afe-b22e6448e119-603B4
+
+
+[08/10/2023 00:31] mike_bello90
+but a gauge it's like a market to vote? or a epoch?
+
+
+[08/10/2023 00:34] lealcodes
+I think its a lending market
+
+
+[08/10/2023 00:48] mike_bello90
+thanks, guys!
+
+
+[08/10/2023 02:06] nonseodion
+How exactly does it affect the voting weights?
+
+
+[08/10/2023 07:43] Lambda#9382
+The 255? This does not affect the voting weight, it is just the upper limit for the number of epochs to checkpoint
+
+
+[08/10/2023 08:04] reentrant
+@Roman sent a dm
+
+{Reactions}
+👍 
+
+[08/10/2023 08:28] nonseodion
+You mentioned that if it isn't checkpointed for 5 years, the voting weights are affected. I wanted to know how they are affected exactly.
+
+
+[08/10/2023 09:08] Lambda#9382
+Ah I see, this would lead to some weid behaviour. Lines 226 - 233 assume that `lastPoint` is the current point. If this is not the case, it means that the changes that should be applied to the current point are applied to some point in the past, which leads to wrong weights
+
+{Reactions}
+👍🏻 (2) 
+
+[08/10/2023 09:34] 0_address
+If you had trouble understanding the state variables in GaugeController.sol, check this out.
+
+{Reactions}
+🫡 (2) 
+
+[08/10/2023 09:35] peterchou
+helpful, thanks
+
+
+[08/10/2023 09:42] 0_address
+you are welcome
+
+
+[08/10/2023 10:16] nonseodion
+Does that mean that if we call  `checkpoint`  to update the points to the latest block only after 5 years pass before calling any  user  action that calls `_checkpoint`, the vote weights will be fine?
+
+
+[08/10/2023 10:19] peterchou
+Where is the interface you are referring to? I can't seem to find it
+
+
+[08/10/2023 10:39] Lambda#9382
+Hmm good question, I have not investigated that in detail because our assumption is that there will be at least one call to the contract in a 5-year period. But yes, after a quick look I think the weights would be fine then
+
+
+[08/10/2023 10:40] Lambda#9382
+I have not created an explicit interface file for that yet, but this will just be the sync function, i.e.:
+```
+function sync_ledger(address _lender, int256 _delta) external;
+```
+
+
+[08/10/2023 11:50] peterchou
+Is cNote the only token that will be used as liquidity for the lending protocols?
+Also, can you provide a quick overview of how cNote can be acquired.
+
+I looked at the provided docs but it's still somewhat unclear to me.
+
+
+[08/10/2023 13:12] Lambda#9382
+It is the only token we care about, the protocols may support providing liquidity for other tokens, but we do not care about these deposit / withdrawals.
+You receive cNOTE by supplying NOTE to the lending market. Basically Compound (https://docs.compound.finance/v2/ctokens/) with a few modifications (see https://docs.canto.io/technical-reference/architecture-and-design/canto-lending-protocol and https://docs.canto.io/technical-reference/architecture-and-design/usdnote-design)
+
+{Embed}
+https://docs.compound.finance/v2/ctokens/
+Compound v2 Docs | cTokens
+Compound is an algorithmic, autonomous interest rate protocol built for developers, to unlock a universe of open financial applications.
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/meta-tag-2C649.png
+
+{Embed}
+https://docs.canto.io/technical-reference/architecture-and-design/canto-lending-protocol
+Canto Lending Protocol
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/XAxBAGZUrbNtmVASfnhh-2C007.png
+
+
+[08/10/2023 14:45] olanre_waju
+If i am correct GaugeController.vote_for_gauge_weights() is the function to call to vote for a lending market right?
+
+
+[08/10/2023 14:52] 0xkazimm
+did we have 255 epoch ? i know 255 is weeks but is that mean we have 255 epoch ?
+
+
+[08/10/2023 15:00] Lambda#9382
+yep
+
+
+[08/10/2023 15:01] Lambda#9382
+The number of epochs is unlimited, 255 is just the forward limit in the checkpoint function (same as curve, see also https://ethereum.stackexchange.com/questions/143388/what-happens-on-curves-votingescrow-contract-after-5-years for some background)
+
+{Embed}
+https://ethereum.stackexchange.com/questions/143388/what-happens-on-curves-votingescrow-contract-after-5-years
+What happens on curves VotingEscrow contract after 5 years?
+I am studying the Voting Escrow contract and im looking to incorporate it in a project im building.
+In the _checkpoint function , there is this for loop:
+    t_i: uint256 = (last_checkpoint / WEEK) *
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/apple-touch-icon%402-EBA58.png
+
+{Reactions}
+🙏🏻 
+
+[08/10/2023 15:11] 0xkazimm
+why in the `_checkpoint_lender` we don't update the `userClaimedEpoch` in the `else if` case ?!
+
+
+[08/10/2023 15:25] Lambda#9382
+It is only initialized there for the first deposit of a user (because this is the point that the user can start claiming rewards). Afterwards, it is only updated when the user claims (such that claiming multiple times for the same epoch is not possible)
+
+{Reactions}
+❤️ 
+
+[08/10/2023 15:25] p_crypt0
+it happens in `claim()`, first couple of lines 🙂
+
+{Reactions}
+👍🏻 
+
+[08/10/2023 15:25] 0xkazimm
+clear enough, thanks
+
+
+[08/10/2023 15:28] Lambda#9382
+I'll be afk for the next few hours. Thanks for all the great questions and inputs, looking forward to see the findings 🙂
+
+{Reactions}
+❤️ 
+
+[08/10/2023 15:53] 0xkazimm
+noobie question, did this line return the day1 or day2 or something like this in the epoch ?
+`uint256 currEpoch = (block.timestamp / WEEK) * WEEK;`
+
+
+[08/10/2023 16:08] thekmj
+Thanks for the audit
+
+
+[08/10/2023 16:09] brahma7456
+epoch
+
+
+[08/10/2023 16:10] thekmj
+It rounds the timestamp down to the week "beginning" (whatever time of the week does unix time begins at)
+
+
+[08/10/2023 16:10] thekmj
+Should be thursday at a specific time if I'm not mistaken
+
+
+[08/10/2023 16:11] 0xkazimm
+so it can be thursday only or it can be even sunday for example(in form of seconds)
+
+
+[08/10/2023 16:12] peterchou
+it's always 7 days after the previous one so if it's thursday, it's always thursday
+
+{Reactions}
+👍🏻 
+
+[08/10/2023 16:13] thekmj
+Yes it's Thursday at exactly 00:00 UTC
+
+{Reactions}
+❤️ 
+
+[08/10/2023 16:13] 0xkazimm
+thanks guys for helping🙏🏻
+
+
+[08/10/2023 17:06] kaden3328
+just me or is the submission form not loading? https://code4rena.com/contests/2023-08-canto-rwa/submit
+
+{Embed}
+https://code4rena.com/contests/2023-08-canto-rwa/submit
+Submit finding | Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/c4-og-banner-668C6.png
+
+
+[08/10/2023 17:08] .ash_hunter
+no working fine for me
+
+
+[08/10/2023 17:16] jaimebarrancos
+anyone have a test to see if a user's points are being calculated well?
+
+
+[08/10/2023 17:17] itsmetechjay
+try this link: https://code4rena.com/contests/2023-08-verwa/submit
+
+{Embed}
+https://code4rena.com/contests/2023-08-verwa/submit
+Submit finding | Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/c4-og-banner-668C6.png
+
+
+[08/10/2023 17:33] kaden3328
+thanks, this worked
+
+{Reactions}
+hi5 
+
+[08/10/2023 19:56] 0xkazimm
+the code was amazing and implemented very well, thank you @Roman  for answering all my questions, you helped me a lot🫡 
+
+hope the best for this protocol :hi5:
+
+{Reactions}
+🫡 (2) 
+
+[08/10/2023 19:57] 0xdetermination
+anyone else unable to see their submitted analysis report?
+
+
+[08/10/2023 20:00] 0xkazimm
+No it work fine for me
+
+
+[08/10/2023 20:01] 0xdetermination
+@0xkazim ok thank u
+
+{Reactions}
+🫡 
+
+[08/10/2023 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺wardens The veRWA audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Keep an eye on #📢announcements for regular updates on how the audit is progressing through awarding 🤑🏆, judging 🧑‍⚖️ and reporting 📜. Feel free to ping a Contest-Admin if you have questions along the way!
+
+{Reactions}
+🔥 (7) 
+
+[08/10/2023 20:02] olanre_waju
+ADMIN:..........THIS CONTEST HAS CLOSED!!!
+
+
+[08/10/2023 20:02] olanre_waju
+oops, i was late....lol
+
+
+[08/10/2023 20:02] auditsea
+This was a fun contest, nice codebase
+
+{Reactions}
+👍🏻 
+
+[08/10/2023 20:05] 0xnevi
+Goodluck guys i looked at the code for only a day and couldn’t find anth. Hopefully u guys got smth!
+
+{Reactions}
+👍 (2) 
+
+[08/10/2023 20:10] mrpotatomagic
+Thanks for your coordination @Roman :thankyou:
+
+{Reactions}
+🫡 
+
+[08/10/2023 20:10] adeolu
+The bot is sometimes late but the website is never late lol
+
+{Reactions}
+10_10 
+
+[08/10/2023 20:11] auditsea
+backstages can see how many submissions were there?
+
+
+[08/10/2023 20:11] mogiblack
+I want to thank the sponser for the to the point and quick answers 🌹 @Roman
+
+{Reactions}
+🫡 
+
+[08/10/2023 20:35] 0xkazimm
+True, It was really hard to find a vuln that you sure 100% is valid
+
+{Reactions}
+👍 (2) 
+
+[08/10/2023 20:37] 0xtendency
+@Roman is just the best
+
+{Reactions}
+🙏 
+
+[08/10/2023 20:37] auditsea
+😄
+
+
+[08/10/2023 20:38] 0xtendency
+The code was so well structured, I hit my head so hard for three days straight, let's see how the two I could manage go
+
+
+[08/10/2023 20:38] auditsea
+Ha, I also found two.
+
+
+[08/10/2023 20:39] 0xtendency
+Good for you mate 🤞
+
+
+[08/10/2023 20:43] superman_i4g
+Same, the codebase was pretty much hard to crack😅
+
+{Reactions}
+👍 (3) 
+
+[08/10/2023 21:32] mike_bello90
+same as you guys, I also found 2 😄
+
+{Reactions}
+😅 
+
+[08/10/2023 21:59] oizo.
+I guess around 450, I submitted an issue numbered around 440 close to the end
+
+
+[08/10/2023 22:09] auditsea
+Thanks for the info!
+
+
+[08/10/2023 22:10] auditsea
+btw, how to see current submissions during the contest? 😂
+
+
+[08/10/2023 22:16] 0xtendency
+The url
+
+
+[08/11/2023 01:50] 0xg03.14
+The codebase was so good. Devs did a great job
+
+
+[08/11/2023 01:52] 0xg03.14
+Btw how many days it'll take for 450 submissions
+
+
+[08/11/2023 07:22] superman_i4g
+Fr I was impressed👏🏽
+
+
+[08/11/2023 10:35] liffidmonky
+my first time auditing in code4arena, where I can see my findings on this audit?
+
+
+[08/11/2023 12:38] 0xg03.14
+You can't see your findings once the contest is over 
+But you can see them in your email
+
+
+[08/11/2023 13:34] Eeyore#8005
+Hi all, and @Roman,
+
+Firstly, thank you, Roman, for all the answers you've provided here.
+
+I have one issue with the code and its architecture. The delegation mechanism in VotingEscrow is flawed from a user experience perspective.
+
+If you delegate to any delegatee, you are forced to restake in order to withdraw. Your stake can even be hijacked if the delegatee continually restakes on their own. Even when your stake's end date has passed, you can't withdraw because your stake needs to be delegated back to yourself. To achieve that, you need to redelegate, and to do that, you need to restake.
+
+The moment you delegate, the experience is not user friendly. You find yourself struggling to undelegate in order to withdraw. As a result, your deposit is not released when you anticipated it would be.
+
+And on the other hand you can't just let users to delegate without those restrictions, as the delegation mechnism will then be abused to have always full power from your stake, simply by just delegating and then restaking minimal amounts as a delegatee.
+
+This is why I feel it as a broken, from user perspective it is just better to never delegate.
+
+
+[08/11/2023 13:57] Lambda#9382
+Hey, yep I agree with that, the current flow to undelegate is not ideal. This will probably be changed before release
+
+
+[08/11/2023 16:55] zhaojie
+I find the same issue
+
+{Reactions}
+➕ (2) 
+
+[08/11/2023 18:06] 0xkazimm
+Is this valid finding?
+
+
+[08/11/2023 18:06] auditsea
+Well I don't think so
+
+{Reactions}
+👍🏻 
+
+[08/11/2023 18:09] 0xnevi
+Why? It is a valid concern and not explicitly mentioned as a “known issue” on the contest details
+
+
+[08/11/2023 18:10] Eeyore#8005
+It shouldn't be perceived that way; it's just not an ideal user experience. If you address this by simply allowing users to undelegate without re-staking, you introduce a larger issue of vote manipulation.
+
+{Reactions}
+👍 (2) 
+
+[08/11/2023 18:59] carrotsmuggler
+Delegation mechanisms are designed for optimised rewards, not optimised control. You can choose to get most rewards by delegating to a trusted party who will autoupdate their position to maximise voting power and thus rewards, or to retain control of your power. Not both.
+
+
+[08/11/2023 19:14] 0xtendency
+You don't seem to understand the bigger picture.
+When one delegate the user can't undelegate, there will be no way to withdraw the locked funds, it stays locked
+
+
+[08/11/2023 19:15] auditsea
+In which case user can't undelegate?
+
+
+[08/11/2023 21:02] aslanbekaibimov
+Are we allowed to discuss findings here, before the report is published?
+
+
+[08/11/2023 21:05] Eeyore#8005
+I didn't report this as a finding. I just wanted to share my thoughts on the code architecture, as I haven't created an analysis report. My intention was simply to inform the project. I hope this wasn't against the rules.
+
+
+[08/11/2023 21:09] auditsea
+There is `delegate` function, it can be used to undelegate
+
+
+[08/11/2023 21:09] Eeyore#8005
+I believe you're mistaken about the front-run part. While it's true that the delegatee can re-stake after the user does, they will both end up with the same end time since it's rounded down to the nearest whole week. This means that after his re-stake, the user has a significant amount of time (up to a full week) to perform an undelegation. The delegation process might seem flawed, especially from the user's experience perspective, but it's crucial to understand that a user can't be blocked by the actions of others. 
+
+Still, I can also be wrong. If that's the case, I will report such user experience flaws next time."
+
+
+[08/11/2023 21:10] 0xtendency
+I don't think, this is okay
+
+
+[08/11/2023 21:10] 0xtendency
+We shouldn't discuss this yet
+
+
+[08/11/2023 21:11] 0xtendency
+You should have submitted an analysis report
+
+
+[08/11/2023 21:11] Eeyore#8005
+Yep, but constantly out of time.
+
+
+[08/11/2023 21:13] Eeyore#8005
+I'm sorry again if my topic is in violation to the C4 policy, can't find this in the C4 documentation.
+
+
+[08/11/2023 21:14] aslanbekaibimov
+It could be qualified as this one, i think
+
+{Attachments}
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/Screenshot_20230812-021339_Chrome-B96DC.jpg
+
+
+[08/11/2023 21:14] aslanbekaibimov
+Better safe than sorry
+
+
+[08/11/2023 21:14] auditsea
+Oopsie didnt know that, we all gotta shut up now lol
+
+
+[08/11/2023 21:15] Eeyore#8005
+Yep, if did find this. Hope I will not be kicked from C4.
+
+{Reactions}
+👍 
+
+[08/11/2023 21:15] Eeyore#8005
+Lesson learned.
+
+
+[08/12/2023 00:03] cloudellie
+Would definitely have been ideal to submit as an Analysis, for future reference.
+
+
+[08/15/2023 10:51] mrpotatomagic
+you can inform the sponsor @Roman about it
+
+
+[08/15/2023 14:58] cloudellie
+Yes, please reach out to the project team directly. @Roman is the right person to connect with. Thank you!
+
+
+[08/21/2023 03:25] mrosas
+Hi need some help, Let say if A.sol is the scope of the contract but it inherits B.sol, should we still audit B and will there be payout if there is a vulnerability?
+
+
+[08/21/2023 05:50] thekmj
+<https://docs.code4rena.com/awarding/judging-criteria#scope>
+
+
+[08/21/2023 05:51] mrosas
+So if B.sol has vulnerbaility do we still report?
+
+
+[08/21/2023 05:52] thekmj
+Judges to decide
+
+
+[08/22/2023 13:21] alcueca
+If B is not in the scope, findings on B won't be accepted. You might be better off submitting the finding through immunefi if it is live code.
+
+
+[08/25/2023 06:37] 0xg03.14
+when...?
+
+
+[08/25/2023 06:44] 0xg03.14
+@Jay | C4
+
+
+[08/25/2023 15:02] itsmetechjay
+It's currently being judged. No ETA for awarding at this time.
+
+{Reactions}
+chefskiss (4) thankyou (3) 
+
+[08/29/2023 04:20] 0xg03.14
+Any updates @thebrittfactor | C4
+
+
+[08/31/2023 13:11] thebrittfactor
+We are wrapping up the Post-Judging QA period soon!
+
+{Reactions}
+🫡 thankyou (3) 
+
+[08/31/2023 13:59] oizo.
+I never know what these words mean but they look cool
+
+{Reactions}
+😂 (6) 
+
+[08/31/2023 14:32] cloudellie
+After the judge completes their deliberations, we have a QA period where backstage wardens and the project team review the judge's decisions and have an opportunity to ask questions or add relevant comments. 
+
+Once that period closes, the judge reviews the additional input and finalizes their decisions, at which point C4 staff calculate and announce the awards and results.
+
+{Reactions}
+chefskiss (4) 👍 
+
+[09/01/2023 02:35] tamayonft
+How we know when this period is open?
+
+
+[09/01/2023 05:09] brahma7456
+very soon
+
+
+[09/01/2023 12:18] ladboy233
+:10_10: :10_10: :10_10: :10_10: :10_10:
+
+{Reactions}
+10_10 (3) 
+
+[09/01/2023 14:09] thebrittfactor
+Very very soon :party_skeletor:
+
+{Reactions}
+10_10 (6) 
+
+[09/01/2023 14:55] thebrittfactor
+🤑 🎉  Awards for **veRWA**:
+
+$7,120.54 USDC » @0xladboy | Sparkware 
+$3,374.01 USDC » @bart1e 
+$2,554.77 USDC » @deadrxsezzz
+$2,539.35 USDC » @0xDetermination 
+$2,133.21 USDC » @Franfran 
+$2,133.21 USDC » @gzeon 
+$423.56 USDC » @Yanchuan  
+$395.54 USDC » @0xcatellatech 
+$391.89 USDC » @0xComfyCat 
+$388.96 USDC » @MrPotatoMagic 
+$360.24 USDC » RED-LOTUS-REACH (@escrow, @DedOhwale (GMT-7), @BlockChomper (GMT +4), @reentrant and @MogiBlack)
+$314.09 USDC » @rjs 
+$313.85 USDC » @popular00 
+$300.90 USDC » @mert_eren 
+$290.66 USDC » @cducrest 
+$289.11 USDC » @immeas 
+$258.68 USDC » @oakcobalt 
+$254.56 USDC » @SpicyMeatball 
+$233.52 USDC » @bin2chen 
+$211.91 USDC » @Brenzee 
+$192.55 USDC » Team_Rocket (@AlexCzm and @EllipticPoint) 
+$192.43 USDC » @ltyu 
+$187.17 USDC » @nonseodion 
+$186.84 USDC » @thekmj 
+$179.98 USDC » GREY-HAWK-REACH ( @aslanbek, @dimulski, @aswinraj94 and @Kose)
+$164.38 USDC » @pep7siup 
+$151.45 USDC » @0xbrett8571 
+$146.08 USDC » @0xCiphky 
+$137.25 USDC » @Kaden 
+$115.78 USDC » @auditsea 
+$110.18 USDC » @markus_ether 
+$109.13 USDC » @eeyore 
+$95.94 USDC » @0x73696d616f 
+$81.34 USDC » @ppetrov
+$78.43 USDC » @QiuhaoLi 
+$74.88 USDC » @3DOC 
+$68.86 USDC » @0xDING99YA 
+$53.88 USDC » @Tripathi 
+$47.92 USDC » @0xSmartContract 
+$47.44 USDC » @zhaojie 
+$43.21 USDC » @carrotsmuggler 
+$43.21 USDC » @qpzm 
+$41.17 USDC » @ADM 
+$37.44 USDC » @Tendency 
+$37.44 USDC » @Yuki 
+$36.94 USDC » @th13vn 
+$36.94 USDC » @Tricko 
+$35.90 USDC » @lsaudit 
+$31.67 USDC » @Jorgect 
+$31.43 USDC » @KmanOfficial 
+$25.65 USDC » @Watermelon 
+$25.65 USDC » @nemveer 
+$22.70 USDC » @Olanrewaju 
+$21.60 USDC » @seerether 
+$20.06 USDC » @Topmark 
+$15.83 USDC » @Kow 
+$15.83 USDC » @BenRai 
+$15.83 USDC » @RandomUser
+
+{Reactions}
+4739_Skeletor (3) 🎉 
+
+[09/01/2023 14:55] thebrittfactor
+$9.82 USDC » @kaveyjoe 
+$9.82 USDC » @RHaO-sec 
+$9.82 USDC » @T1MOH 
+$9.82 USDC » @deth 
+$9.82 USDC » @erebus 
+$9.82 USDC » @_eperezok 
+$9.82 USDC » @HChang26 
+$9.82 USDC » @Strausses 
+$9.82 USDC » @leasowillow 
+$9.82 USDC » @InAllHonesty 
+$9.82 USDC » @imkapadia 
+$9.82 USDC » @Alhakista 
+$9.82 USDC » @audityourcontracts (AYC) 
+$9.82 USDC » @anon 
+$9.82 USDC » @ayden 
+$9.82 USDC » @Rolezn 
+$9.82 USDC » @Bughunter101 
+$9.82 USDC » @castle_chain 
+$9.82 USDC » @MatricksDeCoder
+$9.82 USDC » @0x3b 
+$9.82 USDC » @kutu 
+$9.82 USDC » @hunter_w3b 
+$9.82 USDC » @carlos__alegre 
+$9.82 USDC » @supervrijdag
+$9.82 USDC » @owadez 
+$9.82 USDC » @windhustler 
+$9.82 USDC » @Deekshith99 
+$9.82 USDC » @merlin 
+$9.82 USDC » @14si2o_Flint 
+$9.82 USDC » @sandy 
+$9.82 USDC » @AlexCzm 
+$9.82 USDC » @klau5 
+$9.82 USDC » @Shubham 
+$9.82 USDC » @0xhacksmithh 
+$9.82 USDC » @Jat 
+$9.82 USDC » @ni8mare 
+$9.82 USDC » @d23e 
+$9.82 USDC » @0xkazim 
+$9.82 USDC » @Raihan 
+$9.82 USDC » @aakansha
+$4.23 USDC » @hpsb 
+$4.23 USDC » @pipidu83 
+$4.23 USDC » @piyushshukla599  
+$4.23 USDC » @koxuan 
+$4.23 USDC » @0xWaitress 
+$4.23 USDC » @Silverskrrrt 
+$4.23 USDC » @Santiago Moreno 
+$4.23 USDC » @0xweb3boy 
+$4.23 USDC » @hassan-truscova 
+$4.23 USDC » @0xE1 
+$4.23 USDC » @Giorgio 
+$4.23 USDC » @matrix_0wl 
+$4.23 USDC » @superman_i4g 
+$4.23 USDC » @ch0bu 
+$4.23 USDC » @0xmuxyz 
+$4.23 USDC » @0xG0P1 
+$4.23 USDC » @p_crypt0 
+$4.23 USDC » @Bube 
+$4.23 USDC » @devival 
+$4.23 USDC » @0xStalin 
+$4.23 USDC » @sl1 
+$4.23 USDC » @Mike_Bello90 
+$4.23 USDC » @gkrastenov 
+$4.23 USDC » @none 
+$4.23 USDC » @tay054
+$4.23 USDC » @Naubit 
+$4.23 USDC » @0xSmartContractSamurai 
+
+🏁 Findings summary
+-------------------------------------
+High risk findings: 8 unique (99 total)
+Med risk findings: 3 unique (3 total)
+QA reports: 96 (Best: RED-LOTUS-REACH)
+Advanced Analysis reports: 8 (Best: catellatech)
+
+Awards will be distributed on Polygon within the next week. Congratulations all and thanks for your patience!  💸 💸 💸
+
+Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.
+
+{Reactions}
+🚀 
+
+[09/01/2023 14:58] 0xdetermination
+Grateful for the opportunity!
+
+
+[09/01/2023 15:02] block_chomper
+Climbing
+
+
+[09/01/2023 15:02] block_chomper
+:based:
+
+
+[09/01/2023 15:14] ladboy233
+https://tenor.com/view/hasbulla-money-gif-25191018
+
+{Embed}
+https://tenor.com/view/hasbulla-money-gif-25191018
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/hasbulla-money-22B63.png
+
+{Reactions}
+👍 (10) 🫡 (12) 🎉 (8) 💪 (5) 💰 (7) 😂 (5) 
+
+[09/01/2023 15:15] deadrosesxyz
+For some reason the my tag doesn't work? @thebrittfactor | C4
+
+
+[09/01/2023 15:24] mrudenko
+hmmm, your feeling when you're not in list...
+
+{Reactions}
+😮‍💨 (3) 
+
+[09/01/2023 15:25] thebrittfactor
+Your nickname doesn't seem to match the nickname that is pulled into awards. I assume your nickname should be updated to "deadrxsezzz" in order to be tagged.
+
+{Reactions}
+👍 (2) 
+
+[09/01/2023 15:28] lsaudit
+when will the scoreboard be updated on the code4rena, to check how many mediums/hoghs each user found?
+
+
+[09/01/2023 15:28] lsaudit
+im talkin here: https://code4rena.com/contests/2023-08-verwa#top
+
+{Embed}
+https://code4rena.com/contests/2023-08-verwa
+Code4rena
+Code4rena is a competitive audit platform that finds more high-severity vulnerabilities, more quickly than any other auditing method.
+Code4rena - ARCHIVE-Q3-2023 - verwa-aug07 [1136715595342172222].txt_Files/c4-og-banner-7DE3A.png
+
+
+[09/01/2023 16:03] 0xsmartcontractsamurai
+Well I guess being last on this list isn't the worst thing 👀 🙏 
+
+👊
+
+{Reactions}
+🔥 (2) 
+
+[09/01/2023 16:08] thebrittfactor
+This usually takes abour 1 hour to update after announcement. Should be there now!
+
+
+[09/01/2023 16:45] lsaudit
+Indeed, there is! Thank you!
+
+
+[09/01/2023 18:57] tamayonft
+Hi I just asking why en the backstage I can see two highs but it just count one in the code4arena
+
+
+[09/01/2023 18:58] trtrth
+Congrats @0xladboy | Sparkware . Respect your progress
+
+{Reactions}
+💯 
+
+[09/01/2023 19:14] tamayonft
+@0xladboy | Sparkware congratulations, I've noticed that you submit more than one valid issue but in code4arena is just showing one high
+
+
+[09/01/2023 19:14] ladboy233
+the rest of my finding was judged as QA, not medium, which is ok
+
+
+[09/01/2023 19:15] ladboy233
+:10_10:
+
+
+[09/01/2023 19:17] tamayonft
+So you get paid 7100 for one solo
+
+
+[09/01/2023 19:17] tamayonft
+That's awesome
+
+
+[09/01/2023 19:18] ladboy233
+and two grade-a, QA, which maybe 100 each
+
+
+[09/01/2023 19:18] ladboy233
+:gummy_bear:
+
+
+[09/01/2023 20:24] benrai
+Congrats on the first place! Have seen you all over the place here in each and every contest channel so you definitely put in the hard work 💪
+
+{Reactions}
+10_10 
+
+[09/01/2023 20:53] tamayonft
+Sorry men, I don't know why in the backstage I have 2 highs but in the result just show 1
+
+
+[09/01/2023 21:04] itsmetechjay
+can you shoot me a DM please?
+
+
+[09/01/2023 21:05] tamayonft
+Send you request to friend
+
+{Reactions}
+👍 
+
+[09/01/2023 22:54] yanchuan1
+What's the meaning of solo?
+
+
+[09/01/2023 22:55] superman_i4g
+Unique
+
+
+[09/01/2023 22:56] yanchuan1
+ok got it
+
+{Reactions}
+👍🏽 
+
+[09/01/2023 23:24] jaimebarrancos
+Where can I see the report
+
+
+[09/02/2023 04:53] akshaysrivastav
+congrats @0xladboy | Sparkware 🎉
+
+{Reactions}
+👍 (3) 
+
+[09/02/2023 14:51] lsaudit
+results are published first, report will be released in the future
+
+
+[09/02/2023 16:47] jaimebarrancos
+thx
+
+
+[09/03/2023 15:38] th13vn
+I have just verified wallet. How long I will receive rewards?
+
+
+[09/04/2023 06:22] j5066
+Go to your wallet an add polygan network and also import  USDC token
+
+{Reactions}
+hearteyesrobot 
+
+[09/05/2023 09:38] klau5_
+I have a question, has the bounty already been sent out? I see my name in the results, but I haven't gotten my bounty yet.
+
+
+[09/05/2023 09:44] 0xnirlin
+check on polygon network
+
+
+[09/05/2023 09:53] klau5_
+I searched my account at polygonscan, but the last USDC I received is 35 days ago.
+
+
+[09/05/2023 09:57] 0x3b
+I think they are still not send
+
+
+[09/05/2023 09:57] 0x3b
+Usually they will announce it in https://discord.com/channels/810916927919620096/810929015509483554/1147183323140079696
+
+
+[09/05/2023 10:05] klau5_
+Oh, I see!
+
+
+==============================================================
+Exported 345 message(s)
+==============================================================
